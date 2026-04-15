@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autonomous Self-Healing Smart Logistics Hub</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">
+            <i data-lucide="box" color="white" size="20"></i>
+          </div>
+          <span class="logo-text">SMART LOGISTICS</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#" class="nav-item active" data-page="dashboard">
+            <i data-lucide="layout-dashboard" size="18"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="nav-item" data-page="add-shipment">
+            <i data-lucide="plus-circle" size="18"></i>
+            <span>Add Shipment</span>
+          </a>
+          <a href="#" class="nav-item" data-page="tracking">
+            <i data-lucide="map-pin" size="18"></i>
+            <span>Live Tracking</span>
+          </a>
+          <a href="#" class="nav-item" data-page="digital-twin">
+            <i data-lucide="box" size="18"></i>
+            <span>Digital Twin</span>
+          </a>
+          <a href="#" class="nav-item" data-page="analytics">
+            <i data-lucide="bar-chart-3" size="18"></i>
+            <span>Analytics</span>
+          </a>
+        </nav>
+
+        <div style="margin-top: auto; padding: 1rem;">
+          <button class="btn btn-primary" id="voice-cmd-btn" style="width: 100%; gap: 0.5rem; justify-content: center; background: rgba(59, 130, 246, 0.1); border: 1px solid var(--primary);">
+            <i data-lucide="mic" size="18"></i>
+            <span>Voice Control</span>
+          </button>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.02); border-radius: 12px;">
+          <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">NODE STATUS</p>
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--success); font-size: 0.8rem; font-weight: 600;">
+            <div class="pulse"></div>
+            SYSTEM OPERATIONAL
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Application View -->
+      <main class="main-view" id="main-content">
+        <!-- Dashboard Header -->
+        <header class="header">
+          <div class="welcome-msg">
+            <h1 id="view-title">Dashboard Overview</h1>
+            <p id="view-subtitle">Real-time logistics analytics and monitoring</p>
+          </div>
+          <div class="ai-status">
+            <i data-lucide="cpu" size="16"></i>
+            <span>AI ENGINE ACTIVE</span>
+          </div>
+        </header>
+
+        <!-- View Content (Injected by main.js) -->
+        <div id="page-content"></div>
+      </main>
+
+      <!-- Activity Log Aside -->
+      <aside class="activity-aside">
+        <div class="card-title" style="border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="activity" size="16" color="var(--primary)"></i>
+          AI ACTIVITY LOG
+        </div>
+        <div class="log-container" id="activity-logs">
+          <!-- Logs will be injected here -->
+        </div>
+      </aside>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="toast">
+      Shipment Added Successfully
+    </div>
+
+    <!-- Notification Tray -->
+    <div id="notification-tray" class="notification-container"></div>
+
+    <!-- Voice Overlay -->
+    <div id="voice-overlay" class="voice-overlay-hidden">
+      <div class="voice-modal">
+        <div class="voice-mic-container">
+          <div class="voice-pulse-1"></div>
+          <div class="voice-pulse-2"></div>
+          <i data-lucide="mic" size="48" color="white"></i>
+        </div>
+        <h2>Listening for commands...</h2>
+        <p class="voice-hint">Try: "Track Shipment SH-1001" or "Open Analytics"</p>
+        <div id="voice-transcript" class="voice-transcript"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      // Initialize icons initially (and after each render)
+      window.addEventListener('load', () => {
+        lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>
